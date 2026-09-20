@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>English Answer Key & Solutions</title>
+    <style>
+        /* CSS Reset & Touch Optimizations */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 12px;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #ffffff;
+            padding: 18px 14px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        header h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 0.82rem;
+            margin-top: 2px;
+        }
+
+        /* 2-Section Navigation Bar */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #475569;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .tab-btn.active {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+        }
+
+        /* Tab Content Control */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Card Styling */
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e8f0;
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 8px;
+        }
+
+        /* Search Box inside OBJ */
+        .search-container {
+            position: sticky;
+            top: 8px;
+            z-index: 100;
+            margin-bottom: 12px;
+            background: #f8fafc;
+            padding: 2px 0;
+        }
+
+        .search-container input {
+            width: 100%;
+            height: 46px;
+            padding: 0 16px;
+            font-size: 0.95rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        .search-container input:focus {
+            border-color: #2563eb;
+        }
+
+        /* Objective Grid */
+        .obj-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+            gap: 8px;
+        }
+
+        .obj-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 8px 4px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .q-num {
+            font-size: 0.72rem;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .ans-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.92rem;
+            font-weight: 700;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            color: #ffffff;
+        }
+
+        .ans-A { background-color: #3b82f6; }
+        .ans-B { background-color: #10b981; }
+        .ans-C { background-color: #f59e0b; }
+        .ans-D { background-color: #ef4444; }
+
+        /* Items & Answers */
+        .sub-item {
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .sub-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .q-title {
+            font-weight: 600;
+            color: #2563eb;
+            font-size: 0.92rem;
+            margin-bottom: 6px;
+        }
+
+        .q-ans {
+            font-size: 0.88rem;
+            color: #334155;
+            background: #f8fafc;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border-left: 3px solid #2563eb;
+        }
+
+        .quote-box {
+            font-style: italic;
+            background-color: #f1f5f9;
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 0.88rem;
+            color: #475569;
+            border-left: 3px solid #94a3b8;
+        }
+
+        /* Table Styling */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .match-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+
+        .match-table th, .match-table td {
+            text-align: left;
+            padding: 10px 8px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .match-table th {
+            background-color: #f8fafc;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Letter Box */
+        .letter-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.83rem;
+            white-space: pre-line;
+            color: #334155;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+
+        .copy-btn {
+            width: 100%;
+            min-height: 44px;
+            background-color: #10b981;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .copy-btn:active {
+            background-color: #059669;
+            transform: scale(0.99);
+        }
+
+        .translation-list {
+            list-style: none;
+        }
+
+        .translation-list li {
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 3px solid #3b82f6;
+            font-size: 0.88rem;
+        }
+
+        .translation-list li strong {
+            display: block;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        @media (min-width: 600px) {
+            body { padding: 20px; }
+            header h1 { font-size: 1.75rem; }
+            .obj-grid { grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); gap: 10px; }
+            .card { padding: 20px; }
+            .card h2 { font-size: 1.2rem; }
+            .match-table { font-size: 0.92rem; }
+            .letter-box { font-size: 0.9rem; padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>English Solution Hub</h1>
+            <p>OBJ & Subjective Answer Key</p>
+        </header>
+
+        <!-- Only 2 Section Navigation Buttons -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('obj-tab', this)">OBJ</button>
+            <button class="tab-btn" onclick="switchTab('subjective-tab', this)">Subjective</button>
+        </div>
+
+        <!-- ================= SECTION 1: OBJ ================= -->
+        <div id="obj-tab" class="tab-content active">
+            <div class="card">
+                <h2>Objective Answers (OBJ)</h2>
+                <div class="search-container">
+                    <input type="number" id="searchInput" placeholder="Search Q. No (e.g. 15, 42)..." oninput="filterQuestions()" inputmode="numeric">
+                </div>
+                <div class="obj-grid" id="objGrid">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 2: SUBJECTIVE ================= -->
+        <div id="subjective-tab" class="tab-content">
+            
+            <!-- SHORT Q.1 -->
+            <div class="card">
+                <h2>Q.1. Match the names of the prose pieces in list A with their authors in list B</h2>
+                <div class="table-wrapper">
+                    <table class="match-table">
+                        <thead>
+                            <tr><th>Prose Piece (List A)</th><th>Matched Author (List B)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>How Free is the Press</td><td><strong>(C) Dorothy L Sayers</strong></td></tr>
+                            <tr><td>A Marriage Proposal</td><td><strong>(A) Antone Chekhov</strong></td></tr>
+                            <tr><td>The Earth</td><td><strong>(E) H E Bate</strong></td></tr>
+                            <tr><td>A child is born</td><td><strong>(B) Germain greer</strong></td></tr>
+                            <tr><td>The Artist</td><td><strong>(D) Shiga Naoya</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SHORT Q.2 -->
+            <div class="card">
+                <h2>Q.2. Match the names of the poems given in list A with their poets in list B</h2>
+                <div class="table-wrapper">
+                    <table class="match-table">
+                        <thead>
+                            <tr><th>Poem (List A)</th><th>Matched Poet (List B)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>My Grandmother's House</td><td><strong>(B) Kamla Das</strong></td></tr>
+                            <tr><td>Fire Hymn</td><td><strong>(C) Keki N Daruwala</strong></td></tr>
+                            <tr><td>An Epitaph</td><td><strong>(A) Walter de la Mare</strong></td></tr>
+                            <tr><td>To Autumn</td><td><strong>(E) John Keats</strong></td></tr>
+                            <tr><td>Song of My self</td><td><strong>(D) Walt Whitman</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SHORT Q.3 -->
+            <div class="card">
+                <h2>Q.3. Application for Issuance of Character Certificate</h2>
+                <div class="letter-box" id="certLetterText">To,
+The Principal,
+Patna College, Patna  
+ 
+Subject: Application for Issuance of Character Certificate.   
+
+Respected Sir,
+Most humbly and respectfully I beg to say that I am a student of your college of class 12th. I am writing to kindly request the issuance of a character certificate, I need this certificate for admission to higher education. Sir, I have always followed the rules and maintained good behavior.
+
+I would be grateful if you could issue the certificate as soon as possible. Thank you for your attention to this request.  
+
+Date :
+NAME
+CLASS
+ROLL</div>
+                <button class="copy-btn" onclick="copyText('certLetterText', this)">📋 Copy Character Certificate Application</button>
+            </div>
+
+            <!-- QUESTION 1: ESSAY -->
+            <div class="card">
+                <h2>1. Write an essay on any one of the following in about 150-200 words:</h2>
+                <div class="q-title">(e) Woman empowerment and safety</div>
+                <div class="q-ans" style="border-left-color: #10b981;">
+                    Women are an important part of our society and deserve equal rights and opportunities. Women empowerment means giving women the freedom and confidence to make their own decisions. Education is one of the most powerful tools for empowering women. Women should have equal opportunities in education, jobs, and leadership. They should be treated with respect and dignity in every place. Women's safety is also very important for a healthy society. Strict laws should be made and properly followed to protect women from violence and harassment.
+                </div>
+            </div>
+
+            <!-- QUESTION 2: PROSE EXPLANATIONS -->
+            <div class="card">
+                <h2>2. Explain any one of the following:</h2>
+                
+                <div class="sub-item">
+                    <div class="quote-box">
+                        (a) Civilization, in the real sense of the term, consists not in the multiplication, but in the deliberate and voluntary restriction of wants.
+                    </div>
+                    <div class="q-ans">
+                        <strong>Answer:</strong><br>
+                        This line is taken from Mahatma Gandhi's renowned essay, "Indian Civilization and Culture." In this statement, Gandhi highlights the fundamental difference between modern Western civilization and ancient Indian civilization. He argues that true civilization is not about endlessly multiplying our desires and relentlessly chasing material comforts, which leads to greed and dissatisfaction. Instead, real civilization involves mastering our minds and passions by consciously and voluntarily restricting our wants. By limiting our material desires, Gandhi believes we can achieve true happiness, contentment, and moral elevation, which is the ultimate goal of human life.
+                    </div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="quote-box">
+                        (b) It shall be my privilege to contribute my share to this enchanting enterprise.
+                    </div>
+                    <div class="q-ans">
+                        <strong>Answer:</strong><br>
+                        This line is taken from Dr. Zakir Husain's speech, "Bharat is My Home," which he delivered after taking the oath as the President of India. In this context, the "enchanting enterprise" refers to the monumental and beautiful task of building a strong, prosperous, and culturally rich nation. Dr. Husain expresses his deep loyalty to India and its people. He humbly states that he considers it a great honor and privilege to serve the country and contribute whatever he can to the continuous growth, moral development, and welfare of the nation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 3: POETRY EXPLANATION -->
+            <div class="card">
+                <h2>3. Explain any one of the following:</h2>
+                <div class="quote-box">
+                    (a) But beleeve that I shall make<br>
+                    Speedier journeys, since I take<br>
+                    More wings and spurres then hea.
+                </div>
+                <div class="q-ans">
+                    <strong>Ans.</strong><br>
+                    This line is taken from “A sweetest love I do not goe” composed by john donne. In this line the poet want to say that He promises to come back like the sun who comes back everyday. He says that he will make a speedier journey taking more power than the sun. The poet says about man's power which is very weak in comparison to nature. A man can't recall the lost time. He can't control over natural phenomenon.
+                </div>
+            </div>
+
+            <!-- QUESTION 4: LETTER -->
+            <div class="card">
+                <h2>4. Letter Writing</h2>
+                <div class="q-title">(a) Write a letter to your friend congratulating him on winning the inter-school debate competition.</div>
+                <div class="letter-box" id="friendLetterText">Examination Hall,
+ABC City.
+September 20, 2026
+
+Dear Rahul,
+
+I was absolutely thrilled to hear the news that you won the first prize in the inter-school debate competition! Please accept my heartiest congratulations on this fantastic achievement.
+
+I know how hard you prepared for this event, spending countless hours researching your topic and refining your arguments. Your dedication, confidence, and eloquence have clearly paid off. You have always been a brilliant speaker, and it is wonderful to see your talent being recognized at such a competitive level among so many schools.
+
+I am incredibly proud of you. Let's meet up this weekend so we can celebrate your victory properly.
+
+Yours truly,
+[Your Name]</div>
+                <button class="copy-btn" onclick="copyText('friendLetterText', this)">📋 Copy Congratulatory Letter</button>
+            </div>
+
+            <!-- QUESTION 5: SHORT QUESTIONS -->
+            <div class="card">
+                <h2>5. Answer any five of the following in about 40-50 words each:</h2>
+
+                <div class="sub-item">
+                    <div class="q-title">(a) What did Mahatma Gandhi learn from modern civilization?</div>
+                    <div class="q-ans">
+                        <strong>Ans.</strong> Mahatma Gandhi learned that we must shun modern civilization at all costs. He believed it is the worship of the material and the brute in us, which makes humanity lazy and a slave to greed, moving us away from moral elevation.
+                    </div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">(d) How is the life of the Negro crippled ?</div>
+                    <div class="q-ans">
+                        <strong>Ans.</strong> According to Martin Luther King Jr., the life of the Negro is crippled by the manacles of segregation and the chains of discrimination. Despite living in a vast ocean of material prosperity, they are forced to languish in poverty and social isolation.
+                    </div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">(f) What is meant by 'Nature without check with original energy'?</div>
+                    <div class="q-ans">
+                        <strong>Ans.</strong> In 'Song of Myself,' Walt Whitman uses this phrase to express his desire to live naturally and freely, without any restraints or prejudices. He wants to experience life with its raw, original, and purest energy, speaking his mind at every hazard.
+                    </div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">(g) Who are the 'whispering neighbours'?</div>
+                    <div class="q-ans">
+                        <strong>Ans.</strong> In the poem 'Now the Leaves are Falling Fast,' the 'whispering neighbours' refer to the messengers or angels of death. They are the forces that snatch away individuals from their real delight, isolating them from their loved ones as they approach the end of life.
+                    </div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">(j) List any four well-known works of the Middle English period.</div>
+                    <div class="q-ans">
+                        <strong>Ans.</strong> Four famous works of the Middle English period are:
+                        <br>1. The Canterbury Tales   
+                        <br>2. Piers Plowman   
+                        <br>3. The Pearl   
+                        <br>4. Confessio Amantis
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 6: MATCHING & TRANSLATION -->
+            <div class="card">
+                <h2>6. Answer any three of the following in about 100-120 words:</h2>
+
+                <div class="sub-item">
+                    <div class="q-title">(d) Match the names of the prose pieces in List-A with their authors in List-B:</div>
+                    <div class="table-wrapper">
+                        <table class="match-table">
+                            <thead>
+                                <tr><th>Prose (List-A)</th><th>Author (List-B)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>(i) Indian Civilization and Culture</td><td><strong>(c) Mahatma Gandhi</strong></td></tr>
+                                <tr><td>(ii) Bharat is My Home</td><td><strong>(a) Dr. Zakir Hussain</strong></td></tr>
+                                <tr><td>(iii) A Pinch of Snuff</td><td><strong>(d) Manohar Malgaonkar</strong></td></tr>
+                                <tr><td>(iv) I Have a Dream</td><td><strong>(e) Martin Luther King, Jr.</strong></td></tr>
+                                <tr><td>(v) Ideas that Have Helped Mankind</td><td><strong>(b) Bertrand Russell</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">(e) Match the names of the prose pieces in List-A with their authors in List-B:</div>
+                    <div class="table-wrapper">
+                        <table class="match-table">
+                            <thead>
+                                <tr><th>Poem / Piece (List-A)</th><th>Author / Poet (List-B)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>(i) Sweetest Love, I Do Not Goe</td><td><strong>(c) John Donne</strong></td></tr>
+                                <tr><td>(ii) Song of Myself</td><td><strong>(d) Walt Whitman</strong></td></tr>
+                                <tr><td>(iii) Now the Leaves are Falling Fast</td><td><strong>(b) W. H. Auden</strong></td></tr>
+                                <tr><td>(iv) Ode to Autumn</td><td><strong>(d) John Keats</strong></td></tr>
+                                <tr><td>(v) An Epitaph</td><td><strong>(a) Walter de la Mare</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">(f) Translate</div>
+                    <ul class="translation-list">
+                        <li>
+                            <strong>i) वह रोज़ सुबह दौड़ता है ।</strong>
+                            Translation: He runs every morning.
+                        </li>
+                        <li>
+                            <strong>ii) क्या आप चाय पी रहे हैं ?</strong>
+                            Translation: Are you drinking tea?
+                        </li>
+                        <li>
+                            <strong>iii) मैंने अपना काम पूरा कर लिया है ।</strong>
+                            Translation: I have completed my work.
+                        </li>
+                        <li>
+                            <strong>iv) कल रात बहुत तेज़ बारिश हुई ।</strong>
+                            Translation: It rained heavily last night.
+                        </li>
+                        <li>
+                            <strong>v) वे मैदान में नहीं खेल रहे थे ।</strong>
+                            Translation: They were not playing in the field.
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Objective Answers Data
+        const objData = [
+            {q: 1, a: "D"}, {q: 2, a: "C"}, {q: 3, a: "A"}, {q: 4, a: "B"}, {q: 5, a: "B"},
+            {q: 6, a: "B"}, {q: 7, a: "B"}, {q: 8, a: "B"}, {q: 9, a: "B"}, {q: 10, a: "B"},
+            {q: 11, a: "C"}, {q: 12, a: "D"}, {q: 13, a: "C"}, {q: 14, a: "B"}, {q: 15, a: "A"},
+            {q: 16, a: "C"}, {q: 17, a: "C"}, {q: 18, a: "C"}, {q: 19, a: "C"}, {q: 20, a: "D"},
+            {q: 21, a: "B"}, {q: 22, a: "A"}, {q: 23, a: "C"}, {q: 24, a: "C"}, {q: 25, a: "C"},
+            {q: 26, a: "A"}, {q: 27, a: "D"}, {q: 28, a: "C"}, {q: 29, a: "D"}, {q: 30, a: "C"},
+            {q: 31, a: "D"}, {q: 32, a: "D"}, {q: 33, a: "B"}, {q: 34, a: "B"}, {q: 35, a: "B"},
+            {q: 36, a: "C"}, {q: 37, a: "D"}, {q: 38, a: "B"}, {q: 39, a: "A"}, {q: 40, a: "A"},
+            {q: 41, a: "C"}, {q: 42, a: "A"}, {q: 43, a: "D"}, {q: 44, a: "D"}, {q: 45, a: "B"},
+            {q: 46, a: "D"}, {q: 47, a: "B"}, {q: 48, a: "A"}, {q: 49, a: "B"}, {q: 50, a: "C"},
+            {q: 51, a: "C"}, {q: 52, a: "D"}, {q: 53, a: "A"}, {q: 54, a: "C"}, {q: 60, a: "B"},
+            {q: 61, a: "A"}, {q: 62, a: "C"}, {q: 63, a: "B"}, {q: 64, a: "D"}, {q: 65, a: "D"},
+            {q: 66, a: "D"}
+        ];
+
+        // Render Objective Cards
+        function renderOBJ() {
+            const objGrid = document.getElementById('objGrid');
+            objGrid.innerHTML = '';
+            objData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'obj-card';
+                card.setAttribute('data-q', item.q);
+                card.innerHTML = `
+                    <span class="q-num">Q.${item.q}</span>
+                    <span class="ans-badge ans-${item.a}">${item.a}</span>
+                `;
+                objGrid.appendChild(card);
+            });
+        }
+
+        // Switch between OBJ and Subjective
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Search Filter Logic for OBJ
+        function filterQuestions() {
+            const query = document.getElementById('searchInput').value.trim();
+            const cards = document.querySelectorAll('.obj-card');
+
+            cards.forEach(card => {
+                const qNum = card.getAttribute('data-q');
+                if (query === '' || qNum === query || qNum.startsWith(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Copy Helper
+        function copyText(elementId, btn) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = '✅ Copied to Clipboard!';
+                btn.style.backgroundColor = '#059669';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = '#10b981';
+                }, 2000);
+            }).catch(err => {
+                alert('Copy failed! Please select and copy manually.');
+            });
+        }
+
+        // Initialize Page
+        renderOBJ();
+    </script>
+</body>
+</html>
