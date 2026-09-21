@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>हिंदी उत्तर पत्रक (Hindi Answer Key & Solutions)</title>
+    <style>
+        /* CSS Reset & Touch Optimizations */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 12px;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #ffffff;
+            padding: 18px 14px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        header h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 0.82rem;
+            margin-top: 2px;
+        }
+
+        /* 2-Section Navigation Bar */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #475569;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .tab-btn.active {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+        }
+
+        /* Tab Content Control */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Card Styling */
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e8f0;
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 8px;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            color: #1e293b;
+            margin: 12px 0 8px 0;
+        }
+
+        /* Search Box inside OBJ */
+        .search-container {
+            position: sticky;
+            top: 8px;
+            z-index: 100;
+            margin-bottom: 12px;
+            background: #f8fafc;
+            padding: 2px 0;
+        }
+
+        .search-container input {
+            width: 100%;
+            height: 46px;
+            padding: 0 16px;
+            font-size: 0.95rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        .search-container input:focus {
+            border-color: #2563eb;
+        }
+
+        /* Objective Grid */
+        .obj-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+            gap: 8px;
+        }
+
+        .obj-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 8px 4px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .q-num {
+            font-size: 0.72rem;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .ans-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.92rem;
+            font-weight: 700;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .ans-a { background-color: #3b82f6; }
+        .ans-b { background-color: #10b981; }
+        .ans-c { background-color: #f59e0b; }
+        .ans-d { background-color: #ef4444; }
+
+        /* Items & Answers */
+        .sub-item {
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .sub-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .q-title {
+            font-weight: 600;
+            color: #2563eb;
+            font-size: 0.94rem;
+            margin-bottom: 6px;
+        }
+
+        .q-ans {
+            font-size: 0.9rem;
+            color: #334155;
+            background: #f8fafc;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border-left: 3px solid #2563eb;
+        }
+
+        .quote-box {
+            font-style: italic;
+            background-color: #f1f5f9;
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #475569;
+            border-left: 3px solid #94a3b8;
+        }
+
+        .essay-content {
+            background-color: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            border-left: 3px solid #10b981;
+        }
+
+        .essay-content p {
+            margin-bottom: 8px;
+        }
+
+        .essay-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Letter Box */
+        .letter-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            white-space: pre-line;
+            color: #334155;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+
+        .copy-btn {
+            width: 100%;
+            min-height: 44px;
+            background-color: #10b981;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .copy-btn:active {
+            background-color: #059669;
+            transform: scale(0.99);
+        }
+
+        @media (min-width: 600px) {
+            body { padding: 20px; }
+            header h1 { font-size: 1.75rem; }
+            .obj-grid { grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); gap: 10px; }
+            .card { padding: 20px; }
+            .card h2 { font-size: 1.2rem; }
+            .letter-box { font-size: 0.92rem; padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>हिंदी उत्तर पत्रक (Solutions)</h1>
+            <p>वस्तुनिष्ठ एवं विषयनिष्ठ प्रश्नोत्तर</p>
+        </header>
+
+        <!-- Only 2 Section Navigation Buttons -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('obj-tab', this)">OBJ</button>
+            <button class="tab-btn" onclick="switchTab('subjective-tab', this)">Subjective</button>
+        </div>
+
+        <!-- ================= SECTION 1: OBJ ================= -->
+        <div id="obj-tab" class="tab-content active">
+            <div class="card">
+                <h2>वस्तुनिष्ठ उत्तर कुंजी (OBJ 1–56)</h2>
+                <div class="search-container">
+                    <input type="number" id="searchInput" placeholder="प्रश्न संख्या खोजें (जैसे 15, 42)..." oninput="filterQuestions()" inputmode="numeric">
+                </div>
+                <div class="obj-grid" id="objGrid">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 2: SUBJECTIVE ================= -->
+        <div id="subjective-tab" class="tab-content">
+            
+            <!-- SHORT ANSWER QUESTIONS -->
+            <div class="card">
+                <h2>लघु उत्तरीय प्रश्न</h2>
+
+                <div class="sub-item">
+                    <div class="q-title">1. जयशंकर प्रसाद का जन्म कब और कहाँ हुआ था?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> जयशंकर प्रसाद का जन्म <strong>30 जनवरी, 1889 ई. को काशी (वाराणसी)</strong> में हुआ था।</div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">2. सुभद्रा कुमारी चौहान का विवाह कब और किसके साथ हुआ था?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> सुभद्रा कुमारी चौहान का विवाह <strong>1919 ई. में ठाकुर लक्ष्मण सिंह चौहान</strong> के साथ हुआ था।</div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">3. भूषण के अनुसार कौन, किसकी मुंडों की माला अर्पित कर रहा है?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> भूषण के अनुसार <strong>छत्रसाल की तलवार भगवान शिव को मुंडों की माला अर्पित कर रही है।</strong></div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">4. अल्पप्राण को परिभाषित करें।</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> जिन वर्णों के उच्चारण में <strong>कम श्वास-वायु</strong> निकलती है, उन्हें <strong>अल्पप्राण वर्ण</strong> कहते हैं। जैसे— क, ग, च, ज आदि।</div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">5. तत्सम शब्द को परिभाषित करें।</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> जो शब्द <strong>संस्कृत से बिना किसी परिवर्तन के हिंदी में आए हैं</strong>, उन्हें तत्सम शब्द कहते हैं। जैसे— अग्नि, सूर्य, रात्रि।</div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">6. 'महा' उपसर्ग से चार शब्द बनाएँ।</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> महापुरुष, महामानव, महाशक्ति, महात्मा।</div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">7. कामायनी कौन है?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> <strong>कामायनी श्रद्धा का दूसरा नाम है।</strong></div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">8. भूषण को 'कवि भूषण' की उपाधि किसने दी थी?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> भूषण को <strong>चित्रकूट के सोलंकी राजा रुद्रसाह</strong> ने ‘कवि भूषण’ की उपाधि दी थी।</div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">9. नाभादास के अनुसार सूरदास के वचनों का विशेष महत्त्व क्या है?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> नाभादास के अनुसार सूरदास की कविता में <strong>प्रेम, अनुप्रास, नवीन युक्तियाँ और कृष्ण-लीला का सुंदर वर्णन</strong> मिलता है। इसलिए उनके वचनों का विशेष महत्त्व है।</div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">10. तुलसीदास ने अपने-आप को किस रूप में भिखारी कहा है?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> तुलसीदास ने अपने-आप को <strong>भगवान श्रीराम की भक्ति का भूखा भिखारी</strong> कहा है।</div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">11. सूरदास के प्रथम पद में नर-नारी क्या कर रहे हैं?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> सूरदास के प्रथम पद में <strong>नर-नारी गा रहे हैं और श्रीकृष्ण को प्रातःकाल उठने के लिए कह रहे हैं।</strong></div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">12. सूरदास की किन्हीं दो रचनाओं के नाम लिखें।</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> सूरदास की दो प्रमुख रचनाएँ हैं—<br>1. <strong>सूरसागर</strong><br>2. <strong>साहित्य लहरी</strong></div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">13. तुलसीदास का विवाह किससे हुआ था?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> तुलसीदास का विवाह <strong>रत्नावली</strong> से हुआ था।</div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">14. ‘श्रीरामचरितमानस’ कैसी कृति है?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> <strong>‘श्रीरामचरितमानस’ एक महाकाव्यात्मक प्रबंध कृति है</strong>, जिसकी रचना गोस्वामी तुलसीदास ने की है।</div>
+                </div>
+
+                <div class="sub-item">
+                    <div class="q-title">15. ‘पद्मावत’ में दिल्ली के किस सुल्तान का वर्णन है?</div>
+                    <div class="q-ans"><strong>उत्तर:</strong> ‘पद्मावत’ में दिल्ली के सुल्तान <strong>अलाउद्दीन खिलजी</strong> का वर्णन है।</div>
+                </div>
+            </div>
+
+            <!-- LONG ANSWER QUESTIONS -->
+            <div class="card">
+                <h2>दीर्घ उत्तरीय प्रश्न</h2>
+
+                <!-- 1. Essay -->
+                <div class="sub-item">
+                    <div class="q-title">1. निम्नलिखित में से किसी एक विषय पर निबंध लिखें:</div>
+
+                    <h3>(क) पर्यावरण संरक्षण</h3>
+                    <div class="essay-content">
+                        <p><strong>भूमिका:</strong> पर्यावरण हमारे जीवन का आधार है। वायु, जल, मिट्टी, पेड़-पौधे तथा जीव-जंतु सभी पर्यावरण के अंग हैं। मनुष्य का जीवन पर्यावरण पर निर्भर है।</p>
+                        <p><strong>पर्यावरण प्रदूषण की समस्या:</strong> आज औद्योगीकरण, शहरीकरण और पेड़ों की अंधाधुंध कटाई के कारण पर्यावरण प्रदूषित हो रहा है। कारखानों से निकलने वाला धुआँ वायु को प्रदूषित करता है। नदियों और तालाबों में कचरा डालने से जल प्रदूषित होता है। वाहनों की बढ़ती संख्या भी प्रदूषण का प्रमुख कारण है।</p>
+                        <p><strong>पर्यावरण संरक्षण के उपाय:</strong> पर्यावरण को बचाने के लिए अधिक-से-अधिक पेड़ लगाने चाहिए। वनों की कटाई रोकनी चाहिए। जल को दूषित होने से बचाना चाहिए और प्लास्टिक के प्रयोग को कम करना चाहिए। वाहनों के प्रदूषण पर नियंत्रण तथा स्वच्छ ऊर्जा के प्रयोग को बढ़ावा देना चाहिए।</p>
+                        <p><strong>उपसंहार:</strong> पर्यावरण की रक्षा करना प्रत्येक नागरिक का कर्तव्य है। यदि हम आज पर्यावरण की रक्षा करेंगे, तभी आने वाली पीढ़ियों को सुरक्षित और स्वस्थ जीवन मिल सकेगा।</p>
+                    </div>
+
+                    <h3>(ख) स्वतंत्रता दिवस</h3>
+                    <div class="essay-content">
+                        <p><strong>भूमिका:</strong> स्वतंत्रता दिवस भारत का राष्ट्रीय पर्व है। प्रत्येक वर्ष <strong>15 अगस्त</strong> को यह पर्व पूरे देश में हर्ष और उल्लास के साथ मनाया जाता है।</p>
+                        <p><strong>महत्त्व:</strong> 15 अगस्त, 1947 को भारत को ब्रिटिश शासन से स्वतंत्रता मिली। इस स्वतंत्रता के लिए अनेक स्वतंत्रता सेनानियों ने संघर्ष किया और अपने प्राणों का बलिदान दिया।</p>
+                        <p><strong>समारोह:</strong> इस दिन विद्यालयों, सरकारी कार्यालयों तथा अन्य संस्थानों में ध्वजारोहण किया जाता है। राष्ट्रगान गाया जाता है और स्वतंत्रता सेनानियों को श्रद्धांजलि दी जाती है। विद्यालयों में भाषण, सांस्कृतिक कार्यक्रम तथा देशभक्ति से जुड़े कार्यक्रम आयोजित किए जाते हैं।</p>
+                        <p><strong>हमारा कर्तव्य:</strong> हमें देश की स्वतंत्रता और एकता का सम्मान करना चाहिए। देश के विकास में अपना योगदान देना चाहिए और अपने अधिकारों के साथ-साथ अपने कर्तव्यों का भी पालन करना चाहिए।</p>
+                        <p><strong>उपसंहार:</strong> स्वतंत्रता दिवस हमें देशभक्ति, एकता और राष्ट्र के प्रति अपने कर्तव्यों की याद दिलाता है। हमें अपने देश की प्रगति के लिए सदैव प्रयास करना चाहिए।</p>
+                    </div>
+
+                    <h3>(ग) बेरोजगारी की समस्या</h3>
+                    <div class="essay-content">
+                        <p><strong>भूमिका:</strong> बेरोजगारी आज भारत की प्रमुख सामाजिक और आर्थिक समस्याओं में से एक है। जब योग्य व्यक्ति काम करने में सक्षम और इच्छुक होने के बावजूद रोजगार प्राप्त नहीं कर पाता, तो उसे बेरोजगारी कहते हैं।</p>
+                        <p><strong>बेरोजगारी के कारण:</strong> बेरोजगारी के कई कारण हैं। जनसंख्या की वृद्धि, रोजगार के पर्याप्त अवसरों का अभाव, शिक्षा और कौशल में अंतर तथा उद्योगों का पर्याप्त विकास न होना इसके प्रमुख कारण हैं।</p>
+                        <p><strong>दुष्परिणाम:</strong> बेरोजगारी से गरीबी बढ़ती है और परिवारों की आर्थिक स्थिति कमजोर होती है। इससे युवाओं में निराशा और असंतोष भी बढ़ सकता है। बेरोजगारी देश की आर्थिक प्रगति को भी प्रभावित करती है।</p>
+                        <p><strong>समाधान:</strong> रोजगार के नए अवसर पैदा करने चाहिए। छोटे और कुटीर उद्योगों को बढ़ावा देना चाहिए। युवाओं को व्यावसायिक और तकनीकी शिक्षा देकर रोजगार योग्य बनाना चाहिए। स्वरोजगार को भी प्रोत्साहित किया जाना चाहिए।</p>
+                        <p><strong>उपसंहार:</strong> बेरोजगारी का समाधान केवल सरकार की जिम्मेदारी नहीं है। सरकार, उद्योग और समाज के संयुक्त प्रयास से इस समस्या को कम किया जा सकता है।</p>
+                    </div>
+
+                    <h3>(घ) गंगा नदी</h3>
+                    <div class="essay-content">
+                        <p><strong>भूमिका:</strong> गंगा भारत की प्रमुख नदियों में से एक है। भारतीय संस्कृति और जीवन में इसका विशेष महत्त्व है।</p>
+                        <p><strong>महत्त्व:</strong> गंगा नदी का जल कृषि, पेयजल और अन्य आवश्यक कार्यों में उपयोग किया जाता है। इसके किनारे अनेक नगर और तीर्थस्थल बसे हुए हैं। गंगा का भारतीय साहित्य, धर्म और संस्कृति में भी विशेष स्थान है।</p>
+                        <p><strong>प्रदूषण की समस्या:</strong> आज गंगा नदी प्रदूषण की समस्या से प्रभावित है। इसमें घरेलू गंदा पानी, औद्योगिक अपशिष्ट और कचरा पहुँचने के कारण जल की गुणवत्ता प्रभावित होती है।</p>
+                        <p><strong>संरक्षण:</strong> गंगा को स्वच्छ रखने के लिए नदी में कचरा नहीं डालना चाहिए। सीवेज और औद्योगिक अपशिष्ट को उपचारित करके ही नदी में छोड़ना चाहिए। लोगों में स्वच्छता और नदी संरक्षण के प्रति जागरूकता बढ़ानी चाहिए।</p>
+                        <p><strong>उपसंहार:</strong> गंगा केवल एक नदी नहीं, बल्कि भारत की प्राकृतिक और सांस्कृतिक धरोहर है। इसकी स्वच्छता और संरक्षण हम सभी का कर्तव्य है।</p>
+                    </div>
+                </div>
+
+                <!-- 2. Application -->
+                <div class="sub-item">
+                    <div class="q-title">2. विद्यालय में खेल-स्थल उपलब्ध कराने के लिए अपने प्रधानाध्यापक के पास एक आवेदन-पत्र लिखें।</div>
+                    <div class="letter-box" id="sportsLetterText">सेवा में,
+प्रधानाध्यापक महोदय,
+अपने विद्यालय का नाम,
+स्थान।
+
+विषय: विद्यालय में खेल-स्थल उपलब्ध कराने के संबंध में आवेदन।
+
+महोदय,
+सविनय निवेदन है कि हमारे विद्यालय में विद्यार्थियों के लिए उचित खेल-स्थल की व्यवस्था नहीं है। खेल विद्यार्थियों के शारीरिक एवं मानसिक विकास के लिए अत्यंत आवश्यक हैं। खेलों से विद्यार्थियों में अनुशासन, सहयोग और आत्मविश्वास की भावना विकसित होती है।
+
+अतः आपसे विनम्र अनुरोध है कि विद्यालय में विद्यार्थियों के लिए एक उचित खेल-स्थल की व्यवस्था कराने की कृपा करें, ताकि हम नियमित रूप से विभिन्न खेलों का अभ्यास कर सकें।
+
+धन्यवाद।
+
+भवदीय
+एक छात्र
+कक्षा–12
+दिनांक–________</div>
+                    <button class="copy-btn" onclick="copyText('sportsLetterText', this)">📋 आवेदन-पत्र कॉपी करें</button>
+                </div>
+
+                <!-- 3. Grammar Difference -->
+                <div class="sub-item">
+                    <div class="q-title">3. करण कारक और अपादान कारक में उदाहरण सहित अंतर स्पष्ट करें।</div>
+                    <div class="q-ans">
+                        <p><strong>करण कारक:</strong> जिस साधन या माध्यम से किसी कार्य को किया जाता है, उसे <strong>करण कारक</strong> कहते हैं। इसके साथ सामान्यतः <strong>‘से’ या ‘के द्वारा’</strong> का प्रयोग होता है।</p>
+                        <p><em>उदाहरण:</em><br>1. राम <strong>कलम से</strong> पत्र लिखता है।<br>2. किसान <strong>हल से</strong> खेत जोतता है।</p>
+                        <br>
+                        <p><strong>अपादान कारक:</strong> जिससे किसी वस्तु या व्यक्ति के अलग होने, दूर होने या तुलना किए जाने का भाव प्रकट हो, उसे <strong>अपादान कारक</strong> कहते हैं। इसके साथ भी सामान्यतः <strong>‘से’</strong> का प्रयोग होता है।</p>
+                        <p><em>उदाहरण:</em><br>1. पेड़ <strong>से</strong> पत्ता गिरा।<br>2. राम मोहन <strong>से</strong> लंबा है।</p>
+                        <br>
+                        <p><strong>अंतर:</strong> करण कारक में <strong>साधन या माध्यम</strong> का बोध होता है, जबकि अपादान कारक में <strong>अलगाव, दूरी या तुलना</strong> का बोध होता है।</p>
+                    </div>
+                </div>
+
+                <!-- 4. Contextual Explanation -->
+                <div class="sub-item">
+                    <div class="q-title">4. सप्रसंग व्याख्या करें—</div>
+                    <div class="quote-box">
+                        “औ मन जानि कबित अस कीन्हा।<br>
+                        मकु यह रहै जगत महँ चीन्हा।”
+                    </div>
+                    <div class="q-ans">
+                        <p><strong>प्रसंग:</strong> प्रस्तुत पंक्तियाँ गोस्वामी तुलसीदास की रचना से ली गई हैं। इन पंक्तियों में कवि अपनी रचना के उद्देश्य और उसके महत्त्व के बारे में बताते हैं।</p>
+                        <p><strong>व्याख्या:</strong> तुलसीदास कहते हैं कि उन्होंने अपने मन की बात जानकर यह कविता लिखी है। उनकी इच्छा है कि उनकी यह रचना संसार में प्रसिद्ध हो और लोग इसे पहचानें। कवि अपनी रचना के माध्यम से अपने विचारों और भावनाओं को लोगों तक पहुँचाना चाहते हैं।</p>
+                        <p><strong>भाव:</strong> इन पंक्तियों में कवि की अपनी रचना के प्रति आत्मीयता तथा उसके संसार में प्रसिद्ध होने की इच्छा व्यक्त हुई है।</p>
+                    </div>
+                </div>
+
+                <!-- 5. Tulsidas Meaning -->
+                <div class="sub-item">
+                    <div class="q-title">5. तुलसी के प्रथम पद का भावार्थ लिखें।</div>
+                    <div class="q-ans">
+                        <strong>भावार्थ:</strong><br>
+                        तुलसी के प्रथम पद में भगवान श्रीराम के प्रति भक्तिभाव और समर्पण की भावना व्यक्त हुई है। कवि अपने आपको श्रीराम का दास मानते हैं और उनकी भक्ति को अपने जीवन का आधार समझते हैं। वे सांसारिक मोह-माया से दूर होकर प्रभु की शरण में रहना चाहते हैं।<br><br>
+                        कवि के मन में श्रीराम के प्रति गहरी श्रद्धा और प्रेम है। वे प्रभु की कृपा को ही अपने जीवन का सबसे बड़ा सहारा मानते हैं। इस पद में भक्त और भगवान के बीच प्रेम, विश्वास तथा पूर्ण समर्पण का भाव दिखाई देता है।
+                    </div>
+                </div>
+
+                <!-- 6. Character Sketch -->
+                <div class="sub-item">
+                    <div class="q-title">6. ‘उसने कहा था’ शीर्षक पाठ के अनुसार वजीरासिंह का चरित्र-चित्रण करें।</div>
+                    <div class="q-ans">
+                        <p><strong>भूमिका:</strong> ‘उसने कहा था’ कहानी के लेखक <strong>चंद्रधर शर्मा गुलेरी</strong> हैं। कहानी में वजीरासिंह एक महत्वपूर्ण पात्र है, जो लहना सिंह के साथ युद्ध में रहता है।</p>
+                        <p><strong>सहयोगी स्वभाव:</strong> वजीरासिंह अपने साथियों के प्रति सहयोग और अपनापन रखने वाला व्यक्ति है। वह कठिन परिस्थितियों में भी अपने साथियों का साथ देता है।</p>
+                        <p><strong>साहसी:</strong> युद्ध के कठिन वातावरण में भी वह साहस और धैर्य बनाए रखता है। वह अपने कर्तव्य से पीछे नहीं हटता।</p>
+                        <p><strong>हँसमुख स्वभाव:</strong> वजीरासिंह का स्वभाव हँसमुख और विनोदी है। युद्ध जैसे गंभीर वातावरण में भी वह अपने व्यवहार से साथियों का मन हल्का करता है।</p>
+                        <p><strong>देशभक्ति:</strong> वह अपने सैनिक कर्तव्य के प्रति निष्ठावान है और देश के लिए लड़ने वाले सैनिकों की भावना का प्रतिनिधित्व करता है।</p>
+                        <p><strong>निष्कर्ष:</strong> इस प्रकार वजीरासिंह एक <strong>सहयोगी, साहसी, हँसमुख और कर्तव्यनिष्ठ सैनिक</strong> के रूप में सामने आता है।</p>
+                    </div>
+                </div>
+
+                <!-- 7. Precis Writing -->
+                <div class="sub-item">
+                    <div class="q-title">7. संक्षेपण करें:</div>
+                    <div class="quote-box">
+                        <strong>मूल भाव:</strong> दहेज प्रथा समाज के लिए एक अभिशाप है। आज के यांत्रिक युग में भी यह एक राक्षस का रूप धारण कर चुकी है। इसने न जाने कितने घरों को बर्बाद कर भुखमरी की आग में झोंक दिया। एक तरफ दहेज ने न जाने कितनी लड़कियों की माँगें सूनी रखीं, तो दूसरी तरफ कितनी मासूमों की जीवन-लीला ही समाप्त कर दी। आज भी दहेज के कारण समाज में कई अपराध घटित हो रहे हैं।
+                    </div>
+                    <div class="q-ans">
+                        <h3>संक्षेपण: दहेज प्रथा : सामाजिक अभिशाप</h3>
+                        <p>दहेज प्रथा समाज की गंभीर समस्या है। इसके कारण अनेक परिवार आर्थिक संकट में पड़ जाते हैं और कई लड़कियों का विवाह प्रभावित होता है। दहेज के कारण महिलाओं पर अत्याचार और अनेक अपराध भी होते हैं। इसलिए इस कुप्रथा को समाप्त करने के लिए समाज में जागरूकता फैलाना आवश्यक है।</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Answer Key Data (Q1 to Q56 from Image)
+        const objData = [
+            {q: 1, a: "c"}, {q: 2, a: "d"}, {q: 3, a: "a"}, {q: 4, a: "d"}, {q: 5, a: "a"},
+            {q: 6, a: "b"}, {q: 7, a: "d"}, {q: 8, a: "b"}, {q: 9, a: "a"}, {q: 10, a: "a"},
+            {q: 11, a: "b"}, {q: 12, a: "a"}, {q: 13, a: "b"}, {q: 14, a: "a"}, {q: 15, a: "c"},
+            {q: 16, a: "c"}, {q: 17, a: "a"}, {q: 18, a: "a"}, {q: 19, a: "d"}, {q: 20, a: "d"},
+            {q: 21, a: "a"}, {q: 22, a: "b"}, {q: 23, a: "a"}, {q: 24, a: "b"}, {q: 25, a: "b"},
+            {q: 26, a: "d"}, {q: 27, a: "a"}, {q: 28, a: "d"}, {q: 29, a: "b"}, {q: 30, a: "a"},
+            {q: 31, a: "b"}, {q: 32, a: "d"}, {q: 33, a: "b"}, {q: 34, a: "c"}, {q: 35, a: "d"},
+            {q: 36, a: "a"}, {q: 37, a: "c"}, {q: 38, a: "c"}, {q: 39, a: "c"}, {q: 40, a: "b"},
+            {q: 41, a: "a"}, {q: 42, a: "c"}, {q: 43, a: "c"}, {q: 44, a: "d"}, {q: 45, a: "c"},
+            {q: 46, a: "a"}, {q: 47, a: "d"}, {q: 48, a: "b"}, {q: 49, a: "d"}, {q: 50, a: "b"},
+            {q: 51, a: "c"}, {q: 52, a: "b"}, {q: 53, a: "b"}, {q: 54, a: "c"}, {q: 55, a: "a"},
+            {q: 56, a: "a"}
+        ];
+
+        // Render OBJ Grid
+        function renderOBJ() {
+            const objGrid = document.getElementById('objGrid');
+            objGrid.innerHTML = '';
+            objData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'obj-card';
+                card.setAttribute('data-q', item.q);
+                card.innerHTML = `
+                    <span class="q-num">Q.${item.q}</span>
+                    <span class="ans-badge ans-${item.a}">${item.a}</span>
+                `;
+                objGrid.appendChild(card);
+            });
+        }
+
+        // Switch between OBJ and Subjective
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Search Filter Logic for OBJ
+        function filterQuestions() {
+            const query = document.getElementById('searchInput').value.trim();
+            const cards = document.querySelectorAll('.obj-card');
+
+            cards.forEach(card => {
+                const qNum = card.getAttribute('data-q');
+                if (query === '' || qNum === query || qNum.startsWith(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Copy Helper
+        function copyText(elementId, btn) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = '✅ कॉपी हो गया!';
+                btn.style.backgroundColor = '#059669';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = '#10b981';
+                }, 2000);
+            }).catch(err => {
+                alert('कॉपी विफल! कृपया हाथ से कॉपी करें।');
+            });
+        }
+
+        // Initialize
+        renderOBJ();
+    </script>
+</body>
+</html>
